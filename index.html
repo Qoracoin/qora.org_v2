@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<style type="text/css">
+		.reveal{
+			height: 93%;
+			top: 7%;
+		}
+		.navbar {
+			max-height: 7%;
+		}
+		.reveal section img {
+    	background: none;
+     	border: none;
+     	box-shadow: none;
+		}
+		.navbar-fixed-top {
+border: 0;
+z-index: 9999;
+}
+.sidebar {
+display: none;
+}
+@media (min-width: 768px) {
+.sidebar {
+position: fixed;
+top: 51px;
+bottom: 0;
+left: 0;
+z-index: 1000;
+display: block;
+padding: 20px;
+overflow-x: hidden;
+overflow-y: auto;
+background-color: #f5f5f5;
+border-right: 1px solid #eee;
+}
+}
+.nav-sidebar {
+margin-right: -21px;
+margin-bottom: 20px;
+margin-left: -20px;
+}
+.nav-sidebar > li > a {
+padding-right: 20px;
+padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+color: #fff;
+background-color: #428bca;
+}
+img.downloads {
+    width: 200px;
+    padding: 50px;
+}
+img.downloads-expanded {
+    width: 400px;
+    padding: 50px;
+}
+a.downloads {
+    color: #6467FF !important;
+    text-decoration: none;
+		font-size: 20px;
+		border: 1px solid;
+		padding: 20px;
+}
+a:focus.downloads, a:hover.downloads {
+    color: lightgray !important;
+		text-decoration: none;
+		font-size: 20px;
+		border: 1px solid;
+		padding: 20px;
+}
+a.reco {
+    color: #ccc !important;
+    text-decoration: none;
+		font-size: 20px;
+		border: 1px solid;
+		padding: 20px;
+}
+a:focus.reco, a:hover.reco {
+    color: #444 !important;
+		text-decoration: none;
+		font-size: 20px;
+		border: 1px solid;
+		padding: 20px;
+}
+img.resources {
+    width: 200px;
+    padding: 50px;
+}
+img.resources-expanded {
+    width: 400px;
+    padding: 50px;
+}
+a.resources {
+    color: #444 !important;
+    text-decoration: none;
+		font-size: 450px;
+		/*border: 1px solid #888;*/
+		padding: 20px;
+		/*box-shadow: 1px 1px 1px 1px #888;*/
+}
+a:focus.resources, a:hover.resources {
+    color: #fff !important;
+		text-decoration: none;
+		font-size: 50px;
+		border: 1px solid #6467ff;
+		padding: 20px;
+		background-color: #6467ff
+}
+img.navbar-logo {
+	width: 80px;
+}
+img.community-expanded {
+
+
+}
+img.community-expanded-slack {
+width: 40%;
+margin: 0px !important;
+
+}
+.community-expanded{
+display: flex;
+display: -webkit-flex;
+
+}
+.community-expanded-l {
+	float: left;
+	width: 48%;
+}
+.community-expanded-r {
+	float: right;
+	width: 48%;
+}
+a.cta {
+	min-width: 250px;
+	width: 30%;
+	border: 1px solid #444;
+	border-radius: 10px;
+}
+button.cta {
+    padding-right: 30px;
+    color: #fff;
+    background-color: #444;
+    font-size: 50px;
+    padding-left: 30px;
+}
+.medium-embed {
+    height: 460px;
+}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/#/"><img class="navbar-logo" src="/lib/img/logo_header.png"></a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/#/1">About</a></li>
+				<li><a href="/#/2">Downloads</a></li>
+				<li><a href="/#/3">Resources</a></li>
+				<li><a href="/#/4">Community</a></li>
+
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</nav>
+</div>
+
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+					<section data-transition="slide" data-background="#ffffff" data-background-transition="zoom">
+							<img data-src="/lib/img/qora.png" alt="Qora">
+					</section>
+					<section>
+					<section data-background="https://i.imgur.com/b1BZy3A.jpg">
+					</section>
+					<section data-background-video="/lib/vid/Qora.mp4" data-background-color="#000000" class="stretch">
+
+					</section>
+
+
+
+				</section>
+				<section>
+				<section data-background="#413dbd">
+					<h2>Downloads</h2>
+					<div class="downloads">
+					<a href="/#/2/1"><img class="downloads" data-src="/lib/img/java-2.png" alt="Universal"></a>
+					<a href="/#/2/2"><img class="downloads" data-src="/lib/img/windows-2.png" alt="Windows"></a>
+					<a href="/#/2/3"><img class="downloads" data-src="/lib/img/apple-2.png" alt="Apple"></a>
+					<a href="/#/2/4"><img class="downloads" data-src="/lib/img/linux-2.png" alt="Linux"></a>
+					</div>
+				</section>
+				<section data-background="#413dbd">
+					<h2>Universal Wallet</h2>
+					<div class="downloads-expanded">
+					<a href=""><img class="downloads-expanded" data-src="/lib/img/java-2.png" alt="Universal"></a>
+					<p>The Universal Wallet</p>
+				</div><a class="downloads" href="/#/2"><i class="fa fa-chevron-left"> Back to downloads</i></a>
+				</section>
+				<section data-background="#413dbd">
+					<h2>Windows Wallet</h2>
+					<div class="downloads-expanded">
+						<a href=""><img class="downloads-expanded" data-src="/lib/img/windows-2.png" alt="Windows"></a>
+					</div><a class="downloads" href="/#/2"><i class="fa fa-chevron-left"> Back to downloads</i></a>
+				</section>
+				<section data-background="#413dbd">
+					<h2>MAC OS Wallet</h2>
+					<div class="downloads-expanded">
+						<a href=""><img class="downloads-expanded" data-src="/lib/img/apple-2.png" alt="MAC OS"></a>
+					</div><a class="downloads" href="/#/2"><i class="fa fa-chevron-left"> Back to downloads</i></a>
+				</section>
+				<section data-background="#413dbd">
+					<h2>Linux Wallet</h2>
+					<div class="downloads-expanded">
+						<a href=""><img class="downloads-expanded" data-src="/lib/img/linux-2.png" alt="Windows"></a>
+					</div><a class="downloads" href="/#/2"><i class="fa fa-chevron-left"> Back to downloads</i></a>
+				</section>
+				</section>
+
+				<section>
+				<section data-background="#ffffff">
+					<h2>Resources</h2>
+					<div class="resources">
+						<a href="/#/3/1"><img class="resources" data-src="/lib/img/github.png" alt="GitHub"><img></a>
+						<a href="/#/3/2"><img class="resources" data-src="/lib/img/blockexplorer.png" alt="Block Explorer"></a>
+						<a href="/#/3/4"><img class="resources" data-src="/lib/img/exchanges.png" alt="Exchanges"></a><br>
+						<a href="/#/3/5"><img class="resources" data-src="/lib/img/docs.png" alt="Docs"></a>
+						<a href="/#/3/3"><img class="resources" data-src="/lib/img/api.png" alt="API"></a>
+						<a href="/#/3/6"><img class="resources" data-src="/lib/img/faucet.png" alt="Faucet"></a>
+					</div>
+				</section>
+				<!-- Github -->
+				<section data-background="#ffffff">
+					<div class="community-expanded">
+						<span class="community-expanded-l">
+							<p>Find and explore<br>the <a target="_blank" href="https://github.com/Qoracoin/Qora">source code</a> on</p>
+							<a target="_blank" href="https://github.com/Qoracoin/Qora"><button class="cta" type="btn">Github</button></a>
+							</span>
+					<span class="community-expanded-r">
+						<a target="_blank" href="https://github.com/Qoracoin/Qora"><img align="right" data-src="/lib/img/github-2.png" alt="Github"></a>
+					</span>
+				</div><br>
+					<a class="reco" href="/#/3"><i class="fa fa-chevron-left"> Back to Resources</i></a>
+				</section>
+				<!-- Block Explorer -->
+				<section data-background="#ffffff">
+					<div class="community-expanded">
+						<span class="community-expanded-l">
+							<p>Search on the<br></p>
+							<a target="_blank" href="http://qora.co.in:9090/index/blockexplorer.html"><button class="cta" type="btn">Block Explorer</button></a>
+							<p>of Qora<br></p>
+					</span>
+					<span class="community-expanded-r">
+						<a target="_blank" href="http://qora.co.in:9090/index/blockexplorer.html"><img align="right" data-src="/lib/img/blockexplorer-2.png" alt="Block Explorer"></a>
+					</span>
+				</div><br>
+					<a class="reco" href="/#/3"><i class="fa fa-chevron-left"> Back to Resources</i></a>
+				</section>
+				<!-- API -->
+				<section data-background="#ffffff">
+					<div class="community-expanded">
+						<span class="community-expanded-l">
+							<p>Read the<br>
+								<a target="_blank"  href="http://api.qora.org"><button class="cta" type="btn">API Docs</button></a><br>
+							of Qora</p>
+						<!-- <a href="https://twitter.com/qoracoin"><button class="cta" type="btn">Follow</button></a> -->
+					</span>
+					<span class="community-expanded-r">
+						<a target="_blank" href="http://api.qora.org"><img align="right" data-src="/lib/img/api-2.png" alt="Block Explorer"></a>
+					</span>
+				</div><br>
+					<a class="reco" href="/#/3"><i class="fa fa-chevron-left"> Back to Resources</i></a>
+				</section>
+
+			<!-- Exchanges -->
+			<section data-background="#ffffff">
+				<h2>Exchanges</h2>
+				<div class="resources">
+					<a href="/#/3/1"><img class="resources" data-src="/lib/img/github.png" alt="GitHub"><img></a>
+					<a href="/#/3/2"><img class="resources" data-src="/lib/img/blockexplorer.png" alt="Block Explorer"></a>
+					<a href="/#/3/3"><img class="resources" data-src="/lib/img/api.png" alt="API"></a><br>
+				</div>
+			</section>
+			<!-- Docs -->
+			<section data-background="#ffffff">
+				<div class="community-expanded">
+					<span class="community-expanded-l">
+						<br><p>Read the<br><a target="_blank" href="http://docs.qora.org"><button class="cta" type="btn">Tutorials</button></a><br>of Qora</p>
+				</span>
+				<span class="community-expanded-r">
+					<a target="_blank" href="http://docs.qora.org"><img align="right" data-src="/lib/img/docs-2.png" alt="Docs"></a>
+				</span>
+			</div><br>
+				<a class="reco" href="/#/3"><i class="fa fa-chevron-left"> Back to Resources</i></a>
+			</section>
+			<!-- Faucet -->
+			<section data-background="#ffffff">
+				<div class="community-expanded">
+					<span class="community-expanded-l">
+						<p><br><br>Get free coins<br>from the <br><a target="_blank" href="http://qora.co.in/faucet.php"><button class="cta" type="btn">Faucet</button></a><br></p>
+				</span>
+				<span class="community-expanded-r">
+					<a target="_blank" href="http://qora.co.in/faucet.php"><img align="right" data-src="/lib/img/faucet-2.png" alt="Faucet"></a>
+				</span>
+			</div><br>
+				<a class="reco" href="/#/3"><i class="fa fa-chevron-left"> Back to Resources</i></a>
+			</section>
+			</section>
+
+			<section>
+				<section data-background="#ffffff">
+					<h2>Community</h2>
+					<div class="resources">
+						<a href="/#/4/1"><img class="resources" data-src="/lib/img/slack.png" alt="Slack"><img></a>
+						<a href="/#/4/2"><img class="resources" data-src="/lib/img/twitter.png" alt="Twitter"></a>
+						<a href="/#/4/3"><img class="resources" data-src="/lib/img/facebook.png" alt="Facebook"></a><br>
+						<a href="/#/4/4"><img class="resources" data-src="/lib/img/medium.png" alt="Medium"></a>
+						<a href="/#/4/5"><img class="resources" data-src="/lib/img/youtube.png" alt="YouTube"></a>
+						<a href="/#/4/6"><img class="resources" data-src="/lib/img/reddit.png" alt="Reddit"></a>
+					</div>
+				</section>
+				<!-- Slack -->
+					<section data-background="#ffffff">
+						<div class="community-expanded">
+							<span class="community-expanded-l">
+								<!-- <img class="community-expanded-slack" data-src="/lib/img/slack-logo.png" alt="Slack"> -->
+							<p>Join<br>
+								<a target="_blank" href="http://slack.qora.org"><img class="community-expanded-slack" data-src="/lib/img/slack-logo.png" alt="Slack"></a><br>
+								and be a member<br> of Qora community</p>
+						</span>
+						<span class="community-expanded-r">
+							<a target="_blank" href="http://qoracommunity.slack.com"><img align="right" data-src="/lib/img/slack-2.png" alt="Slack"><a>
+						</span>
+					</div><br>
+						<a class="reco" href="/#/4"><i class="fa fa-chevron-left"> Back to Community</i></a>
+					</section>
+					<!-- Twitter -->
+					<section data-background="#ffffff">
+						<div class="community-expanded">
+							<span class="community-expanded-l">
+								<!-- <img class="community-expanded-slack" data-src="/lib/img/twitter-logo.png" alt="Twitter"> -->
+							<p><br>Follow<br><a target="_blank" href="https://twitter.com/qoracoin">@qoracoin</a><br>on</p>
+							<a target="_blank" href="https://twitter.com/qoracoin"><img class="community-expanded-slack" data-src="/lib/img/twitter-logo-2.png" alt="Twitter"></a>
+						</span>
+						<span class="community-expanded-r">
+							<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Qora, a digital currency with powerful and innovative features that leads the next generation. <a href="https://t.co/4Cu9Ufw9Rx">https://t.co/4Cu9Ufw9Rx</a></p>&mdash; Qora (@qoracoin) <a href="https://twitter.com/qoracoin/status/628538156414054400">August 4, 2015</a></blockquote>
+							<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</span>
+					</div><br>
+						<a class="reco" href="/#/4"><i class="fa fa-chevron-left"> Back to Community</i></a>
+					</section>
+					<!-- Facebook -->
+					<section data-background="#ffffff">
+						<div class="community-expanded">
+						<span class="community-expanded-l">
+							<br>
+							<p>Like the<br><a target="_blank" href="https://www.facebook.com/qoracoin"><img class="community-expanded-slack" data-src="/lib/img/facebook-logo.png" alt="FaceBook"></a><br>page of Qora</p>
+						</span>
+							<span class="community-expanded-r">
+								<div class="fb-page" data-href="https://www.facebook.com/qoracoin" data-width="400" data-height="400" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/qoracoin"><a href="https://www.facebook.com/qoracoin">Qora</a></blockquote></div></div>
+
+						</span>
+					</div><br>
+						<a class="reco" href="/#/4"><i class="fa fa-chevron-left"> Back to Community</i></a>
+					</section>
+			<!-- Medium -->
+			<section data-background="#ffffff">
+				<div class="community-expanded">
+					<span class="community-expanded-r">
+						<br>
+						<p>Read stories from Qora<br>blog on</p>
+						<a target="_blank" href="https://medium.com/qora-world"><img class="community-expanded-slack" data-src="/lib/img/medium-logo.png" alt="Medium"></a>
+					</span>
+				<span class="community-expanded-l">
+					<div class="medium-embed">
+					<script async src="https://static.medium.com/embed.js"></script><a class="m-collection" href="https://medium.com/qora-world">Qora World</a>
+				</div></span>
+				</span>
+			</div><br>
+				<a class="reco" href="/#/4"><i class="fa fa-chevron-left"> Back to Community</i></a>
+			</section>
+			<!-- YouTube -->
+			<section data-background="#ffffff">
+				<div class="community-expanded">
+					<span class="community-expanded-l">
+						<p>Subscribe<br>on</p>
+						<a href="https://www.youtube.com/channel/UChxYcZMni2U-fzZ80PPMFwg" target="_blank"><img class="community-expanded-slack" data-src="/lib/img/youtube-logo.png" alt="YouTube"></a>
+				</span>
+				<span class="community-expanded-r">
+					<a href="https://www.youtube.com/channel/UChxYcZMni2U-fzZ80PPMFwg" target="_blank"><img align="right" data-src="/lib/img/youtube-2.png" alt="YouTube"/></a>
+				</span>
+			</div><br>
+				<a class="reco" href="/#/4"><i class="fa fa-chevron-left"> Back to Community</i></a>
+			</section>
+			<!-- Reddit -->
+			<section data-background="#ffffff">
+				<div class="community-expanded">
+					<span class="community-expanded-l">
+
+					<p>Join the discussions<br>on</p>
+					<a target="_blank" href="https://www.reddit.com/r/qora"><img class="community-expanded-slack" data-src="/lib/img/reddit-logo.png" alt="Slack"></a>
+				</span>
+				<span class="community-expanded-r">
+					<a target="_blank" href="https://www.reddit.com/r/qora"><img align="right" data-src="/lib/img/reddit-2.png" alt="Reddit"></a>
+				</span>
+			</div><br>
+				<a class="reco" href="/#/4"><i class="fa fa-chevron-left"> Back to Community</i></a>
+			</section>
+	</section>
+
+				<!-- <section>
+				<section data-background="#ffffff">
+					<div class="resources">
+						<a class="resources"><i class="fa fa-question"></i></a>
+					</div>
+				</section>
+				</section> -->
+
+
+			</div>
+
+		</div>
+	</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: false,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
